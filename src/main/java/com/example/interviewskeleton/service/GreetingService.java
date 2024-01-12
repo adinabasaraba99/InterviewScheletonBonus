@@ -1,14 +1,22 @@
 package com.example.interviewskeleton.service;
 
 import com.example.interviewskeleton.config.GreetingConfig;
+import com.example.interviewskeleton.entity.Greeting;
+import com.example.interviewskeleton.repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 import java.util.Map;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class GreetingService {
 
     private final GreetingConfig greetingConfig;
+
+    private GreetingRepository greetingRepository;
 
     @Autowired
     public GreetingService(GreetingConfig greetingConfig) {
@@ -46,6 +54,6 @@ public class GreetingService {
             default -> greetingConfig.getMorning();
         };
     }
-
 }
+
 
